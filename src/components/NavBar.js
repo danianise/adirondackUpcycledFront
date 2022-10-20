@@ -43,11 +43,10 @@ function NavBar() {
                 </li>
             </ul>
 
-            <BsCart4 />
-
             <div className='hamburger' onClick={handleClick}>
                     {click ? <VscChromeClose /> : <TiThMenu />} 
             </div>
+            <BsCart4 />
         </nav>    
     </div>
   )
