@@ -1,0 +1,11 @@
+ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
