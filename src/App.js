@@ -1,4 +1,5 @@
 import './App.css';
+import ContactSidebar from './components/ContactSidebar';
 import NavBar from './components/NavBar';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
         alt='Logo for Adirondack Upcycled' 
       />
       <NavBar />
+      <ContactSidebar />
     </div>
   );
 }

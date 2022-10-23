@@ -1,0 +1,31 @@
+.contact {
+    right: 1%;
+    bottom: 0;
+    padding-top: 55%;
+    position: fixed;
+    margin-top: 0;
+}
+
+.vertLine {
+    border-left: 2px solid;
+    margin: 5px 10px 0 10px;
+    height: 200px;
+
+}
+
+.icon{
+    margin: 8px 0 8px 0;
+    transition: transform ease 300ms;
+}
+
+.icon:hover {
+    fill: gray;
+    transform: translate(0, -5px);
+}
+
+@media screen and (max-width:940px) {
+    .vertLine {
+        height: 100px;
+    }
+}
+
