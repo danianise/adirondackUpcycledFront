@@ -6,16 +6,16 @@ function ContactSidebar() {
   return (
     <div className='contact'>
         <a href=''>
-            <BsFillTelephoneFill id='phone' className='icon' />
+            <BsFillTelephoneFill id='phone' className='icon' title='(518) 364-1554' />
         </a>
         <br />
 
-        <a href='' target='_blank'>
+        <a href='https://www.instagram.com/adirondack__upcycled/?hl=en' target='_blank'>
             <BsInstagram id='instagram' className='icon' />
         </a>
         <br />
 
-        <a href='' target='_blank'>
+        <a href='https://www.facebook.com/AdirondackUpcycled' target='_blank'>
             <BsFacebook id='facebook' className='icon' />
         </a>
         <div className='vertLine'></div>
