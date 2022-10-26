@@ -1,6 +1,8 @@
+import { Slide } from 'react-slideshow-image';
 import './App.css';
 import ContactSidebar from './components/ContactSidebar';
 import NavBar from './components/NavBar';
+import Slideshow from './components/Slideshow';
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       />
       <NavBar />
       <ContactSidebar />
+      <Slideshow />
     </div>
   );
 }
