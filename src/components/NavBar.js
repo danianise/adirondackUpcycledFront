@@ -19,31 +19,31 @@ function NavBar() {
         <nav className='navbar'>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
                 <li className='nav-item'>
-                    <a href=''>
+                    <a href='/'>
                         HOME
                     </a>
                 </li>
 
                 <li className='nav-item'>
-                    <a href=''>
+                    <a href='/about'>
                         ABOUT
                     </a>
                 </li>
 
                 <li className='nav-item'>
-                    <a href=''>
+                    <a href='/events'>
                         EVENTS
                     </a>
                 </li>
 
                 <li className='nav-item'>
-                    <a href=''>
+                    <a href='/custom'>
                         CUSTOM ORDERS
                     </a>
                 </li>
 
                 <li className='nav-item'>
-                    <a href=''>
+                    <a href='/shop'>
                         SHOP
                     </a>
                 </li>
