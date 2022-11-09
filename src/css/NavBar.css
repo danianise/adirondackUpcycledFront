@@ -2,14 +2,13 @@
     top: 25%;
     position: absolute;
     right: 2%;
-    height: 4vh;
+    height: 30px;
     width: auto;
-    /* height: auto;
-    width: 2vw; */
+    color: black;
 }
 
 .header {
-    position: fixed;
+    position: absolute;
     height: 90px;
     width: 100vw;
     top: 0;
@@ -17,6 +16,7 @@
     z-index: 1;
     transition: .3s ease-in;
     overflow: hidden;
+    color: white;
     /* background-color: rgba(255, 255, 255, 0.4); */
 }
 
@@ -50,7 +50,7 @@
     display: none;
 }
 
-@media screen and (max-width:1100px) {
+@media screen and (max-width:1170px) {
     .header {
         max-width: 100%;
         top: 0;
@@ -94,9 +94,5 @@
 
     .nav-item:hover {
         color:darkgray;
-    }
-    #cart {
-        /* width: 4vw; */
-        height: 3vh;
     }
 }

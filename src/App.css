@@ -3,7 +3,8 @@
 }
 
 .App > img {
-  height: 200px;
+  height: 400px;
+  width: 100%;
   z-index: 5;
 }
 

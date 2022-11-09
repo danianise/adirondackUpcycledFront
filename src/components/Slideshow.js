@@ -9,11 +9,11 @@ function Slideshow() {
     let {listingData} = useContext(ListingContext)
 
     let fadeImages = []
-    let fadeTitles = []
+    let fadeListingUrls = []
 
     listingData.map((eachListing) => {
-      let url = `http://localhost:8000${eachListing.photo}`
-      fadeImages.push(url)
+      let src = `http://localhost:8000${eachListing.photo}`
+      fadeImages.push(src)
     })
     // console.log(fadeImages)
     // const fadeImages = [
