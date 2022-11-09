@@ -38,6 +38,12 @@ function NavBar() {
 
                 <li className='nav-item'>
                     <a href=''>
+                        CUSTOM ORDERS
+                    </a>
+                </li>
+
+                <li className='nav-item'>
+                    <a href=''>
                         SHOP
                     </a>
                 </li>
@@ -46,7 +52,7 @@ function NavBar() {
             <div className='hamburger' onClick={handleClick}>
                     {click ? <VscChromeClose /> : <TiThMenu />} 
             </div>
-            <BsCart4 />
+            <BsCart4  id='cart'/>
         </nav>    
     </div>
   )

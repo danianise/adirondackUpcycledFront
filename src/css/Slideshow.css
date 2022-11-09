@@ -1,7 +1,18 @@
 #slideshowImages {
-    width: 85vw;
+    width: 60vw;
+    height: 55vh;
+    border-radius: 0.7%;
 }
 
 .slide-container {
-    margin-top: 20vh;
+    padding: 0;
+    margin: 10vh auto;
+    width: 60vw;
+    height: auto;
+}
+
+.eachFade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

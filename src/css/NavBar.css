@@ -1,8 +1,18 @@
+#cart {
+    top: 25%;
+    position: absolute;
+    right: 2%;
+    height: 4vh;
+    width: auto;
+    /* height: auto;
+    width: 2vw; */
+}
+
 .header {
     position: fixed;
     height: 90px;
     width: 100vw;
-    top: 200px;
+    top: 0;
     left: 0;
     z-index: 1;
     transition: .3s ease-in;
@@ -27,7 +37,8 @@
 
 .header .nav-item {
     padding: 1rem;
-    font-weight: 500;
+    font-size: small;
+    /* font-weight: 500; */
     /* color:#014f86; */
 }
 
@@ -39,7 +50,7 @@
     display: none;
 }
 
-@media screen and (max-width:940px) {
+@media screen and (max-width:1100px) {
     .header {
         max-width: 100%;
         top: 0;
@@ -83,5 +94,9 @@
 
     .nav-item:hover {
         color:darkgray;
+    }
+    #cart {
+        /* width: 4vw; */
+        height: 3vh;
     }
 }
