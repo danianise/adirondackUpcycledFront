@@ -1,6 +1,6 @@
 import { Slide } from 'react-slideshow-image';
 import './App.css';
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom";
 
 import { CategoryProvider } from './context/CategoryContext';
 import { ListingProvider } from './context/ListingContext';
@@ -9,6 +9,8 @@ import ContactSidebar from './components/ContactSidebar';
 import NavBar from './components/NavBar';
 import Slideshow from './components/Slideshow';
 import ShopIndex from './components/ShopIndex';
+import CategoryDetail from './components/CategoryDetail';
+import ListingDetail from './components/ListingDetail';
 
 function App() {
   return (
@@ -36,6 +38,20 @@ function App() {
               path='/shop'
               element={
                 <ShopIndex />
+              }
+            />
+
+            <Route
+              path='/shop/:categoryId'
+              element={
+                <CategoryDetail />
+              }
+            />
+
+            <Route
+              path='/shop/:categoryId/:listingId'
+              element={
+                <ListingDetail />
               }
             />
 

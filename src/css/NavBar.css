@@ -20,6 +20,10 @@
     /* background-color: rgba(255, 255, 255, 0.4); */
 }
 
+.header a {
+    color: white;
+}
+
 .header .navbar {
     display: flex;
     align-items: center;

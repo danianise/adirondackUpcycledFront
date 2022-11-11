@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+// import { useParams } from 'react-router'
 import CategoryContext from '../context/CategoryContext'
 import ListingContext from '../context/ListingContext'
 
@@ -11,15 +12,19 @@ function ShopIndex() {
   return (
     <div className='shopIndex'>
       <ul>
-        {categoryData.map((eachCategory) => {
-          if(eachCategory) {
-            return (
-              <li>
-              {eachCategory.name}
-            </li>
-            )
-          }
-        })}
+        {categoryData.map((eachCategory, index) => {
+            if(eachCategory) {
+              let categoryId = eachCategory.id
+              let categoryHref = `/shop/${categoryId}`
+              return (
+                <a href={categoryHref} key={index}>
+                  <li>
+                    {eachCategory.name}
+                  </li>
+                </a>
+              )
+            }
+          })}
       </ul>
     </div>
   )
