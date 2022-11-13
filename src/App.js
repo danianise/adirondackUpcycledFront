@@ -1,4 +1,3 @@
-import { Slide } from 'react-slideshow-image';
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 
@@ -10,7 +9,7 @@ import NavBar from './components/NavBar';
 import Slideshow from './components/Slideshow';
 import ShopIndex from './components/ShopIndex';
 import CategoryDetail from './components/CategoryDetail';
-import ListingDetail from './components/ListingDetail';
+// import ListingDetail from './components/ListingDetail';
 
 function App() {
   return (
@@ -48,12 +47,12 @@ function App() {
               }
             />
 
-            <Route
+            {/* <Route
               path='/shop/:categoryId/:listingId'
               element={
                 <ListingDetail />
               }
-            />
+            /> */}
 
           </Routes>
         </ListingProvider>
