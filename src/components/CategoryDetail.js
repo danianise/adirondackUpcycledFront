@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import '../css/CategoryDetail.css'
 import {useParams} from 'react-router-dom'
 
 import CategoryContext from '../context/CategoryContext'
@@ -9,12 +10,14 @@ function CategoryDetail() {
   let {categoryData} = useContext(CategoryContext)
   let {listingData} = useContext(ListingContext)
 
-  let categoryId = useParams()
+  let params = useParams()
+  console.log(params)
+  let categoryId = (parseInt(params.categoryId))
+  console.log(categoryId)
   let category = ''
-  let src = ''
 
   categoryData.map((eachCategory) => {
-    if(parseInt(categoryId.categoryId) === eachCategory.id){
+    if(categoryId === eachCategory.id){
         category = eachCategory.name
         console.log(category)
     }
@@ -27,9 +30,9 @@ function CategoryDetail() {
         {listingData.map((eachListing, index) => {
             let src = `http://localhost:8000${eachListing.photo}`
             return(
-                <div key={index}>
-                    <img src={src} className='listingImages'/>
-                    <h4>{eachListing.title}</h4>
+                <div className='productCardContainer' key={index}>
+                    <img src={src} className='listingImages' alt='Product'/>
+                    <h4 className='titleBanner'>{eachListing.title}</h4>
                 </div>
             )
         })}
