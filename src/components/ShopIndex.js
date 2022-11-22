@@ -7,15 +7,16 @@ function ShopIndex() {
 
   let {categoryData} = useContext(CategoryContext)
   let {listingData} = useContext(ListingContext)
-  console.log(categoryData)
+  // console.log(categoryData)
 
   return (
     <div className='shopIndex'>
       <ul>
         {categoryData.map((eachCategory, index) => {
             if(eachCategory) {
-              let categoryId = eachCategory.id
-              let categoryHref = `/shop/${categoryId}`
+              let categoryName = eachCategory.name.replace(/\s/g, '').toLowerCase()
+              // console.log(categoryName)
+              let categoryHref = `/shop/${categoryName}`
               return (
                 <a href={categoryHref} key={index}>
                   <li>

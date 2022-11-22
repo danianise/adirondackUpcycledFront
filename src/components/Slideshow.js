@@ -12,7 +12,7 @@ function Slideshow() {
     let fadeListingUrls = []
 
     listingData.map((eachListing) => {
-      let src = `http://localhost:8000${eachListing.photo}`
+      let src = `http://localhost:8000${eachListing.mainPhoto}`
       fadeImages.push(src)
     })
     // console.log(fadeImages)
