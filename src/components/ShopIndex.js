@@ -1,5 +1,4 @@
 import React, {useContext} from 'react'
-// import { useParams } from 'react-router'
 import CategoryContext from '../context/CategoryContext'
 import ListingContext from '../context/ListingContext'
 
@@ -14,9 +13,9 @@ function ShopIndex() {
       <ul>
         {categoryData.map((eachCategory, index) => {
             if(eachCategory) {
-              let categoryName = eachCategory.name.replace(/\s/g, '').toLowerCase()
+              let hrefName = eachCategory.hrefName
               // console.log(categoryName)
-              let categoryHref = `/shop/${categoryName}`
+              let categoryHref = `/shop/${hrefName}`
               return (
                 <a href={categoryHref} key={index}>
                   <li>

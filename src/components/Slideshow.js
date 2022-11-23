@@ -15,29 +15,6 @@ function Slideshow() {
       let src = `http://localhost:8000${eachListing.mainPhoto}`
       fadeImages.push(src)
     })
-    // console.log(fadeImages)
-    // const fadeImages = [
-    //     {
-    //         url: 'tableImage1.jpeg',
-    //         caption: 'First Slide'
-    //     },
-    //     {
-    //         url: 'tableImage2.jpeg',
-    //         caption: 'Second Slide'
-    //     },
-    //     {
-    //         url: 'tableImage3.jpeg',
-    //         caption: 'Third Slide'
-    //     },
-    //     {
-    //         url: 'tableImage4.jpeg',
-    //         caption: 'Fourth Slide'
-    //     },
-    //     {
-    //         url: 'tableImage5.jpeg',
-    //         caption: 'Fifth Slide'
-    //     },
-    //   ];
 
   return (
 

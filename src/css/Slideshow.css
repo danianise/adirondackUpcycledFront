@@ -16,3 +16,18 @@
     justify-content: center;
     align-items: center;
 }
+
+#slide-container-listing-detail {
+    margin-top: 0;
+}
+
+#listingDescription {
+    width: 80vw;
+}
+
+.listingDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

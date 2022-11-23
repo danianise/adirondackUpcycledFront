@@ -12,31 +12,28 @@ function CategoryDetail({name, categoryId}) {
 
   console.log(name)
 
-  // let params = useParams()
-  // console.log(params)
-  // let categoryId = (parseInt(params.categoryId))
-  // console.log(categoryId)
-//   let category = ''
-
-//   categoryData.map((eachCategory) => {
-//     let categoryName = eachCategory.name.toLowerCase().replace(/\s+/g, '')
-//     if(name === categoryName){
-//         category = eachCategory.name
-//         console.log(category)
-//     }
-//     return category
-// })
+  let categoryHref = ''
 
   return (
     <div className='categoryDetail'>
         <h1>{name}</h1>
         {listingData.map((eachListing, index) => {
+          let listingId = eachListing.id
           if (eachListing.category === categoryId) {
+            categoryData.map((eachCategory) => {
+              if (categoryId === eachCategory.id) {
+                categoryHref=`${eachCategory.hrefName}/${listingId}`
+              } 
+            })
+
             let src = `http://localhost:8000${eachListing.mainPhoto}`
+            
             return(
                 <div className='productCardContainer' key={index}>
-                    <img src={src} className='listingImages' alt='Product'/>
-                    <h4 className='titleBanner'>{eachListing.title}</h4>
+                    <a href={categoryHref}>
+                      <img src={src} className='listingImages' alt='Product'/>
+                      <h4 className='titleBanner'>{eachListing.title}</h4>
+                    </a>
                 </div>
             )
           }
