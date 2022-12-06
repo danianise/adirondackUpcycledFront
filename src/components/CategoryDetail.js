@@ -18,24 +18,26 @@ function CategoryDetail({name, categoryId}) {
     <div className='categoryDetail'>
         <h1>{name}</h1>
         {listingData.map((eachListing, index) => {
-          let listingId = eachListing.id
-          if (eachListing.category === categoryId) {
-            categoryData.map((eachCategory) => {
-              if (categoryId === eachCategory.id) {
-                categoryHref=`${eachCategory.hrefName}/${listingId}`
-              } 
-            })
+          if (eachListing.available === true){
+            let listingId = eachListing.id
+            if (eachListing.category === categoryId) {
+              categoryData.map((eachCategory) => {
+                if (categoryId === eachCategory.id) {
+                  categoryHref=`${eachCategory.hrefName}/${listingId}`
+                } 
+              })
 
-            let src = `http://localhost:8000${eachListing.mainPhoto}`
-            
-            return(
-                <div className='productCardContainer' key={index}>
-                    <a href={categoryHref}>
-                      <img src={src} className='listingImages' alt='Product'/>
-                      <h4 className='titleBanner'>{eachListing.title}</h4>
-                    </a>
-                </div>
-            )
+              let src = `http://localhost:8000${eachListing.mainPhoto}`
+              
+              return(
+                  <div className='productCardContainer' key={index}>
+                      <a href={categoryHref}>
+                        <img src={src} className='listingImages' alt='Product'/>
+                        <h4 className='titleBanner'>{eachListing.title}</h4>
+                      </a>
+                  </div>
+              )
+          }
           }
         })}
     </div>
