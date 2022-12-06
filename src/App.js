@@ -47,7 +47,7 @@ function App() {
       id: 8
     }
   ]
-
+  
   return (
     <div className="App">
       <img 

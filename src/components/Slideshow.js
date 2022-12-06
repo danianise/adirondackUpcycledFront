@@ -9,9 +9,9 @@ function Slideshow() {
 
     let {categoryData} = useContext(CategoryContext)
     let {listingData} = useContext(ListingContext)
+    console.log(listingData)
 
     let fadeImages = []
-    let fadeListingUrls = []
 
     listingData.map((eachListing) => {
       let src = `http://localhost:8000${eachListing.mainPhoto}`
@@ -26,9 +26,23 @@ function Slideshow() {
         }
       })
     })
-
+  
   return (
-
+    listingData.length === 0
+  ? <>
+    <h4>UNDER CONSTRUCTION</h4><br />
+    <div id="loader">
+      <div class="ls-particles ls-part-1"></div>
+      <div class="ls-particles ls-part-2"></div>
+      <div class="ls-particles ls-part-3"></div>
+      <div class="ls-particles ls-part-4"></div>
+      <div class="ls-particles ls-part-5"></div>
+      <div class="lightsaber ls-left ls-green"></div>
+      <div class="lightsaber ls-right ls-red"></div>
+    </div>
+    <h5>please check back again soon</h5>
+  </>
+  : <>
     <div className="slide-container">
       <Fade>
         {fadeImages.map((fadeImage, index) => (
@@ -45,6 +59,7 @@ function Slideshow() {
         ))}
       </Fade>
     </div>
+    </>
   )
 }
 
