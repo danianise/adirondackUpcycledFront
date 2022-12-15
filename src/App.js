@@ -10,6 +10,7 @@ import Slideshow from './components/Slideshow';
 import ShopIndex from './components/ShopIndex';
 import CategoryDetail from './components/CategoryDetail';
 import ListingDetail from './components/ListingDetail';
+import EventIndex from './components/EventIndex';
 
 function App() {
 
@@ -233,6 +234,13 @@ function App() {
                   name={'Mantels'}
                   categoryId={8}
                 />
+              }
+            />
+
+            <Route
+              path='/events'
+              element={
+                <EventIndex />
               }
             />
 
