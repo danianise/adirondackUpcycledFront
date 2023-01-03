@@ -44,14 +44,14 @@ function Slideshow() {
   </>
   : <>
     <div className="slide-container">
-      <Fade>
+      <Fade indicators={true} canSwipe={true}>
         {fadeImages.map((fadeImage, index) => (
           <div className="each-fade" key={index}>
             <div className="image-container">
               <a href={fadeImage.href}>
                 <img 
                 src={fadeImage.src} 
-                id="slideshowImages" 
+                className="slideshowImages" 
                 />
               </a>
             </div>

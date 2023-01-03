@@ -51,27 +51,40 @@ function ListingDetail() {
             fadeImages.push(photo5Src)
           }
           
-          return (
-            <div className="listingDetail">
-              <h1>{eachListing.title}</h1>
-              <h4>${eachListing.price}</h4>
-              <div className="slide-container" id="slide-container-listing-detail">
-                <Fade>
-                  {fadeImages.map((fadeImage, index) => (
-                    <div className="each-fade" key={index}>
-                      <div className="image-container">
-                        <img 
-                        src={fadeImage} 
-                        id="slideshowImages" 
-                      />
-                      </div>
-                    </div>
-                  ))}
-                </Fade>
+          if (fadeImages.length===1){
+            return (
+              <div className="listingDetail">
+                <img 
+                  src={fadeImages[0]}
+                  className="slideshowImages singleListingImage"
+                />
+                <p id='listingDescription'>{eachListing.description}</p>
               </div>
-              <p id='listingDescription'>{eachListing.description}</p>
-            </div>
-          )
+            )
+          } else {
+            return (
+              <div className="listingDetail">
+                <h1>{eachListing.title}</h1>
+                <h4>${eachListing.price}</h4>
+                <div className="slide-container" id="slide-container-listing-detail">
+                  <Fade>
+                    {fadeImages.map((fadeImage, index) => (
+                      <div className="each-fade" key={index}>
+                        <div className="image-container">
+                          <img 
+                          src={fadeImage} 
+                          className="slideshowImages" 
+                        />
+                        </div>
+                      </div>
+                    ))}
+                  </Fade>
+                </div>
+                <p id='listingDescription'>{eachListing.description}</p>
+              </div>
+            )
+          }
+          
         }
       })}
 
