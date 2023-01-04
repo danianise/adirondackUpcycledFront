@@ -1,6 +1,6 @@
 .slideshowImages {
-    width: 60vw;
     height: 60vh;
+    max-width: 60vw;
     border-radius: 0.7%;
 }
 
@@ -12,8 +12,6 @@
     padding: 0;
     margin: 10vh auto;
     width: 60vw;
-    /* width: fit-content; */
-    /* height: auto; */
     height: 60vh;
 }
 

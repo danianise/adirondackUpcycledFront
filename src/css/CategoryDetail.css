@@ -40,3 +40,15 @@
     /* background: rgba(0, 0, 0, 0.7); */
     background: black;
 }
+
+@media screen and (max-width:600px){
+    .productCardContainer {
+        width: 55vh;
+    }
+    .listingImages {
+        width: 55vh;
+    }
+    .titleBanner {
+        width: 51.5vh;
+    }
+}

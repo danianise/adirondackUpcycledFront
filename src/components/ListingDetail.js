@@ -67,7 +67,7 @@ function ListingDetail() {
                 <h1>{eachListing.title}</h1>
                 <h4>${eachListing.price}</h4>
                 <div className="slide-container" id="slide-container-listing-detail">
-                  <Fade>
+                  <Fade indicators={true} canSwipe={true}>
                     {fadeImages.map((fadeImage, index) => (
                       <div className="each-fade" key={index}>
                         <div className="image-container">
