@@ -7,6 +7,10 @@
     color: black;
 }
 
+#cart:hover {
+    cursor: pointer;
+}
+
 .header {
     position: absolute;
     height: 90px;

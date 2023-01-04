@@ -11,44 +11,45 @@ import ShopIndex from './components/ShopIndex';
 import CategoryDetail from './components/CategoryDetail';
 import ListingDetail from './components/ListingDetail';
 import EventIndex from './components/EventIndex';
+import ShoppingCart from './components/ShoppingCart';
 
 function App() {
 
-  let categoryExtraInfo = [
-    {
-      hrefName: 'tables',
-      id: 1
-    },
-    {
-      hrefName: 'benches',
-      id: 2
-    },
-    {
-      hrefName: 'wallpieces',
-      id: 3
-    },
-    {
-      hrefName: 'trays',
-      id: 4
-    },
-    {
-      hrefName: 'bars',
-      id: 5
-    },
-    {
-      hrefName: 'cuttingboards',
-      id: 6
-    },
-    {
-      hrefName: 'wineracks',
-      id: 7
-    },
-    {
-      hrefName: 'mantels',
-      id: 8
-    }
-  ]
-  
+  // let categoryExtraInfo = [
+  //   {
+  //     hrefName: 'tables',
+  //     id: 1
+  //   },
+  //   {
+  //     hrefName: 'benches',
+  //     id: 2
+  //   },
+  //   {
+  //     hrefName: 'wallpieces',
+  //     id: 3
+  //   },
+  //   {
+  //     hrefName: 'trays',
+  //     id: 4
+  //   },
+  //   {
+  //     hrefName: 'bars',
+  //     id: 5
+  //   },
+  //   {
+  //     hrefName: 'cuttingboards',
+  //     id: 6
+  //   },
+  //   {
+  //     hrefName: 'wineracks',
+  //     id: 7
+  //   },
+  //   {
+  //     hrefName: 'mantels',
+  //     id: 8
+  //   }
+  // ]
+
   return (
     <div className="App">
       <img 
