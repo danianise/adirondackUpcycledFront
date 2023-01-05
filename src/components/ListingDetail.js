@@ -6,7 +6,7 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import '../css/Slideshow.css'
 
-function ListingDetail() {
+function ListingDetail({addProductToCart}) {
 
   let {categoryData} = useContext(CategoryContext)
   let {listingData} = useContext(ListingContext)
@@ -65,7 +65,10 @@ function ListingDetail() {
             return (
               <div className="listingDetail">
                 <h1>{eachListing.title}</h1>
-                <h4>${eachListing.price}</h4>
+                <h4>
+                  ${eachListing.price}
+                  <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button>
+                </h4>
                 <div className="slide-container" id="slide-container-listing-detail">
                   <Fade indicators={true} canSwipe={true}>
                     {fadeImages.map((fadeImage, index) => (

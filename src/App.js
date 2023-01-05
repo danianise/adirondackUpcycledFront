@@ -1,5 +1,8 @@
-import './App.css';
+import React, {useState} from 'react';
 import { Route, Routes } from "react-router-dom";
+
+import './App.css';
+import {BsCart4} from 'react-icons/bs'
 
 import { CategoryProvider } from './context/CategoryContext';
 import { ListingProvider } from './context/ListingContext';
@@ -15,40 +18,19 @@ import ShoppingCart from './components/ShoppingCart';
 
 function App() {
 
-  // let categoryExtraInfo = [
-  //   {
-  //     hrefName: 'tables',
-  //     id: 1
-  //   },
-  //   {
-  //     hrefName: 'benches',
-  //     id: 2
-  //   },
-  //   {
-  //     hrefName: 'wallpieces',
-  //     id: 3
-  //   },
-  //   {
-  //     hrefName: 'trays',
-  //     id: 4
-  //   },
-  //   {
-  //     hrefName: 'bars',
-  //     id: 5
-  //   },
-  //   {
-  //     hrefName: 'cuttingboards',
-  //     id: 6
-  //   },
-  //   {
-  //     hrefName: 'wineracks',
-  //     id: 7
-  //   },
-  //   {
-  //     hrefName: 'mantels',
-  //     id: 8
-  //   }
-  // ]
+  const [cartVisibility, setCartVisibility] = useState(false)
+  const [productsInCart, setProductsInCart] = useState(0)
+
+  const addProductToCart = (product) => {
+    const newProduct = {
+      ...product,
+      count: 1, 
+    }
+    setProductsInCart([
+      ...productsInCart,
+      newProduct
+    ])
+  }
 
   return (
     <div className="App">
@@ -58,6 +40,12 @@ function App() {
         id='logo' 
       />
       <NavBar />
+      <ShoppingCart 
+                visibility={cartVisibility}
+                products={productsInCart}
+                onClose={() => setCartVisibility(false)}
+      />
+      <BsCart4  id='cartIcon' onClick={() => setCartVisibility(true)} />
       <ContactSidebar />
 
       <CategoryProvider>
@@ -94,6 +82,7 @@ function App() {
                 <ListingDetail
                   name={'Tables'}
                   categoryId={1}
+                  addProductToCart={addProductToCart}
                 />
               }
             />
@@ -114,6 +103,7 @@ function App() {
                 <ListingDetail 
                   name={'Benches'}
                   categoryId={2}
+                  addProductToCart={addProductToCart}
                 />
               }
             />
@@ -134,6 +124,7 @@ function App() {
                 <ListingDetail
                   name='Wall Pieces'
                   categoryId={3}
+                  addProductToCart={addProductToCart}
                 />
               }
             />
@@ -154,6 +145,7 @@ function App() {
                 <ListingDetail 
                   name={'Charcuterie Boards and Serving Trays'}
                   categoryId={4}
+                  addProductToCart={addProductToCart}
                 />
               }
             />
@@ -174,6 +166,7 @@ function App() {
                 <ListingDetail 
                   name={'Bars'}
                   categoryId={5}
+                  addProductToCart={addProductToCart}
                 />
               }
             />
@@ -194,6 +187,7 @@ function App() {
                 <ListingDetail
                   name={'Cutting Boards'}
                   categoryId={6}
+                  addProductToCart={addProductToCart}
                 />
               }
             />
@@ -214,6 +208,7 @@ function App() {
                 <ListingDetail 
                   name={'Wine Racks'}
                   categoryId={7}
+                  addProductToCart={addProductToCart}
                 />
               }
             />
@@ -231,7 +226,7 @@ function App() {
             <Route
               path='/shop/mantels/:listingId'
               element={
-                <CategoryDetail 
+                <ListingDetail 
                   name={'Mantels'}
                   categoryId={8}
                 />

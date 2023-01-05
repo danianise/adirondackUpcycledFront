@@ -1,16 +1,3 @@
-#cart {
-    top: 25%;
-    position: absolute;
-    right: 2%;
-    height: 30px;
-    width: auto;
-    color: black;
-}
-
-#cart:hover {
-    cursor: pointer;
-}
-
 .header {
     position: absolute;
     height: 90px;

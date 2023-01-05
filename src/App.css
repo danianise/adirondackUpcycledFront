@@ -21,3 +21,26 @@ a:visited, a:hover, a:active {
   color: inherit;
 }
 
+#cartIcon {
+  top: 4%;
+  position: absolute;
+  right: 2%;
+  height: 30px;
+  width: auto;
+  color: black;
+  z-index: 20;
+}
+
+#cartIcon:hover {
+  cursor: pointer !important;
+}
+
+#addToCartButton{
+  margin-left: 25px;
+}
+
+#addToCartButton:hover{
+  cursor: pointer;
+}
+
+

@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import ShoppingCart from './ShoppingCart'
-import {BsCart4} from 'react-icons/bs'
 import {TiThMenu} from 'react-icons/ti'
 import {VscChromeClose} from 'react-icons/vsc'
 import '../css/NavBar.css'
@@ -8,8 +6,6 @@ import '../css/NavBar.css'
 function NavBar(visibility, products) {
 
   const [click, setClick] = useState(false)
-  const [cartVisibility, setCartVisibility] = useState(false)
-  const [productsInCart, setProductsInCart] = useState(0)
 
   const handleClick = () => {
     setClick(!click)
@@ -55,11 +51,6 @@ function NavBar(visibility, products) {
             <div className='hamburger' onClick={handleClick}>
                     {click ? <VscChromeClose /> : <TiThMenu />} 
             </div>
-            <ShoppingCart 
-                visibility={cartVisibility}
-                products={productsInCart}
-            />
-            <BsCart4  id='cart' onClick={() => setCartVisibility(true)} />
         </nav>    
     </div>
   )

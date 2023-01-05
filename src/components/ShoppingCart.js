@@ -17,54 +17,54 @@ function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, 
             ? 'block'
             : 'none'
     }}>
-        <div className='header'>
-            <h2>Shopping Cart</h2>
-            <button className='btn close-btn' onClick={onClose}>
-                <AiFillCloseCircle size={30}/>
-            </button>
-        </div>
-        <div className='cart-products'>
-            {!products
-                ? <span className='empty-text'>Your Cart is Empty</span>
-                : <>{products.map(product => (
-                <div className='cart-product' key={product.id}>
-                    <img src={product.image} alt={product.name}/>
-                    <div className='product-info'>
-                        <h3>
-                            {product.name}
-                        </h3>
-                        <span className='product-price'>
-                            ${product.price * product.count}
-                        </span>
+        <div className='shoppingCart'>
+            <div className='header'>
+                <h2>Shopping Cart</h2>
+                <AiFillCloseCircle size={30} className='btn close-btn' onClick={onClose} />
+            </div>
+            <div className='cart-products'>
+                {!products
+                    ? <span className='empty-text'>Your Cart is Empty</span>
+                    : <>{products.map(product => (
+                    <div className='cart-product' key={product.id}>
+                        <img src={product.image} alt={product.name}/>
+                        <div className='product-info'>
+                            <h3>
+                                {product.name}
+                            </h3>
+                            <span className='product-price'>
+                                ${product.price * product.count}
+                            </span>
+                        </div>
+                        <select 
+                            className='count'
+                            value={product.count}
+                            onChange={(event) => {
+                                onQuantityChange(product.id, event.target.value)
+                            }}
+                        >
+                            {
+                                [...Array(10).keys(),].map((number => {
+                                    const num = number + 1
+                                    return <option value={num} key={num}>{num}</option>
+                                }))
+                            }
+                        </select>
+                        <button
+                            className='btn remove-btn'
+                            onClick={() => onProductRemove(product)}
+                        >
+                            <RiDeleteBin6Line size={20}/>
+                        </button>
                     </div>
-                    <select 
-                        className='count'
-                        value={product.count}
-                        onChange={(event) => {
-                            onQuantityChange(product.id, event.target.value)
-                        }}
-                    >
-                        {
-                            [...Array(10).keys(),].map((number => {
-                                const num = number + 1
-                                return <option value={num} key={num}>{num}</option>
-                            }))
-                        }
-                    </select>
-                    <button
-                        className='btn remove-btn'
-                        onClick={() => onProductRemove(product)}
-                    >
-                        <RiDeleteBin6Line size={20}/>
+                ))}</>
+                }
+                {products.length > 0 && (
+                    <button className='btn checkout-btn'>
+                        Proceed to Checkout
                     </button>
-                </div>
-            ))}</>
-            }
-            {products.length > 0 && (
-                <button className='btn checkout-btn'>
-                    Proceed to Checkout
-                </button>
-            )}
+                )}
+            </div>
         </div>
     </div>
   )
