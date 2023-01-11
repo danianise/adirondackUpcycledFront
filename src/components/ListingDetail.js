@@ -13,14 +13,14 @@ function ListingDetail({addProductToCart}) {
 
   let params = useParams()
   let listingId = params.listingId
-  console.log(listingId)
+  // console.log(listingId)
 
   let fadeImages = []
 
   return (
     <div>
       {listingData.map((eachListing) => {
-        console.log(eachListing.id)
+        // console.log(eachListing.id)
 
         if (parseInt(listingId) === eachListing.id){
           let mainPhotoSrc = `http://localhost:8000${eachListing.mainPhoto}`
@@ -54,6 +54,11 @@ function ListingDetail({addProductToCart}) {
           if (fadeImages.length===1){
             return (
               <div className="listingDetail">
+                <h1>{eachListing.title}</h1>
+                <h4>
+                  ${eachListing.price}
+                  <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button>
+                </h4>
                 <img 
                   src={fadeImages[0]}
                   className="slideshowImages singleListingImage"

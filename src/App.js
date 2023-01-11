@@ -26,10 +26,17 @@ function App() {
       ...product,
       count: 1, 
     }
-    setProductsInCart([
-      ...productsInCart,
-      newProduct
-    ])
+    if (productsInCart!==0){
+      setProductsInCart([
+        ...productsInCart,
+        newProduct
+      ])
+    } else {
+      setProductsInCart([
+        newProduct
+      ])
+    }
+    
   }
 
   return (

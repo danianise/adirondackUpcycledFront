@@ -10,6 +10,8 @@ function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, 
 
     // let {categoryData} = useContext(CategoryContext)
     // let {listingData} = useContext(ListingContext)
+    
+    console.log(products)
   
     return (
     <div className='modal' style={{
@@ -25,12 +27,14 @@ function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, 
             <div className='cart-products'>
                 {!products
                     ? <span className='empty-text'>Your Cart is Empty</span>
-                    : <>{products.map(product => (
-                    <div className='cart-product' key={product.id}>
-                        <img src={product.image} alt={product.name}/>
+                    : <>{products.map((product) => {
+                        let mainPhotoSrc = `http://localhost:8000${product.mainPhoto}`
+                    
+                        return (<div className='cart-product' key={product.id}>
+                        <img src={mainPhotoSrc} alt={product.title}/>
                         <div className='product-info'>
                             <h3>
-                                {product.name}
+                                {product.title}
                             </h3>
                             <span className='product-price'>
                                 ${product.price * product.count}
@@ -56,8 +60,8 @@ function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, 
                         >
                             <RiDeleteBin6Line size={20}/>
                         </button>
-                    </div>
-                ))}</>
+                    </div>)
+                    })}</>
                 }
                 {products.length > 0 && (
                     <button className='btn checkout-btn'>
