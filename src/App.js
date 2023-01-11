@@ -52,7 +52,13 @@ function App() {
                 products={productsInCart}
                 onClose={() => setCartVisibility(false)}
       />
-      <BsCart4  id='cartIcon' onClick={() => setCartVisibility(true)} />
+      <button id='cartIcon'>
+        <BsCart4 onClick={() => setCartVisibility(true)} size={33} />
+        {productsInCart.length > 0
+          ? <span className='product-count'>{productsInCart.length}</span>
+          : ""
+        }
+      </button>
       <ContactSidebar />
 
       <CategoryProvider>

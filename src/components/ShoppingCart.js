@@ -21,7 +21,7 @@ function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, 
     }}>
         <div className='shoppingCart'>
             <div className='header'>
-                <h2>Shopping Cart</h2>
+                <h3>Shopping Cart</h3>
                 <AiFillCloseCircle size={30} className='btn close-btn' onClick={onClose} />
             </div>
             <div className='cart-products'>

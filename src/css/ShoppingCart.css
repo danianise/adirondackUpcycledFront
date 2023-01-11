@@ -23,16 +23,24 @@
 }
 
 .shoppingCart .header{
-    width: fill;
+    /* width: stretch; */
     height: fit-content;
     display: flex;
     background-color: #ccc;
-    padding: 10px 20px;
     justify-content: space-between;
+}
+
+.shoppingCart .header h3 {
+    padding-left: 10px;
 }
 
 .close-btn {
     color: #876c3a;
+    padding: 5px;
+}
+
+.close-btn:hover{
+    cursor: pointer;
 }
 
 .empty-text {
@@ -47,6 +55,6 @@
     align-items: flex-start;
     padding: 1rem 0;
     overflow-y: scroll;
-    border: 1px solid red;
     margin: 10% 0 0 0;
 }
+

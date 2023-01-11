@@ -25,10 +25,10 @@ a:visited, a:hover, a:active {
   top: 4%;
   position: absolute;
   right: 2%;
-  height: 30px;
-  width: auto;
-  color: black;
   z-index: 20;
+  color: black;
+  background: transparent;
+  border: none;
 }
 
 #cartIcon:hover {
@@ -43,4 +43,14 @@ a:visited, a:hover, a:active {
   cursor: pointer;
 }
 
-
+.product-count {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 1000px;
+  height: 20px;
+  padding: 2px 5px;
+  text-align: center;
+  font-size: smaller;
+  font-weight: bold;
+  z-index: 100;
+}
