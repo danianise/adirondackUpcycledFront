@@ -30,37 +30,33 @@ function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, 
                     : <>{products.map((product) => {
                         let mainPhotoSrc = `http://localhost:8000${product.mainPhoto}`
                     
-                        return (<div className='cart-product' key={product.id}>
-                        <img src={mainPhotoSrc} alt={product.title}/>
-                        <div className='product-info'>
-                            <h3>
-                                {product.title}
-                            </h3>
-                            <span className='product-price'>
-                                ${product.price * product.count}
-                            </span>
-                        </div>
-                        <select 
-                            className='count'
-                            value={product.count}
-                            onChange={(event) => {
-                                onQuantityChange(product.id, event.target.value)
-                            }}
-                        >
-                            {
-                                [...Array(10).keys(),].map((number => {
-                                    const num = number + 1
-                                    return <option value={num} key={num}>{num}</option>
-                                }))
-                            }
-                        </select>
-                        <button
-                            className='btn remove-btn'
-                            onClick={() => onProductRemove(product)}
-                        >
-                            <RiDeleteBin6Line size={20}/>
-                        </button>
-                    </div>)
+                        return (
+                        <div className='cart-product' key={product.id}>
+                            <img src={mainPhotoSrc} alt={product.title}/>
+                            <div className='product-info'>
+                                <h3>
+                                    {product.title}
+                                </h3>
+                                <span className='product-price'>
+                                    ${product.price * product.count}
+                                </span>
+                            </div>
+                            <select 
+                                className='count'
+                                value={product.count}
+                                onChange={(event) => {
+                                    onQuantityChange(product.id, event.target.value)
+                                }}
+                            >
+                                {
+                                    [...Array(10).keys(),].map((number => {
+                                        const num = number + 1
+                                        return <option value={num} key={num}>{num}</option>
+                                    }))
+                                }
+                            </select>
+                            <RiDeleteBin6Line className='btn delete-btn' size={20} onClick={() => onProductRemove(product)} />
+                        </div>)
                     })}</>
                 }
                 {products.length > 0 && (
