@@ -1,17 +1,19 @@
 import React, {useContext} from 'react'
 import CategoryContext from '../context/CategoryContext'
 import ListingContext from '../context/ListingContext'
+import PaymentButtons from './PaymentButtons'
 
 import '../css/ShoppingCart.css'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {RiDeleteBin6Line} from 'react-icons/ri'
 
-function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, onClose}) {
+function ShoppingCart({visibility, productsInCart, onProductRemove, onQuantityChange, onClose}) {
 
     // let {categoryData} = useContext(CategoryContext)
-    // let {listingData} = useContext(ListingContext)
+    let {listingData} = useContext(ListingContext)
     
-    console.log(products)
+    // console.log(listingData)
+    // console.log(productsInCart)
   
     return (
     <div className='modal' style={{
@@ -25,9 +27,9 @@ function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, 
                 <AiFillCloseCircle size={30} className='btn close-btn' onClick={onClose} />
             </div>
             <div className='cart-products'>
-                {!products
+                {productsInCart.length === 0 || !productsInCart
                     ? <span className='empty-text'>Your Cart is Empty</span>
-                    : <>{products.map((product) => {
+                    : <>{productsInCart.map((product) => {
                         let mainPhotoSrc = `http://localhost:8000${product.mainPhoto}`
                     
                         return (
@@ -49,7 +51,7 @@ function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, 
                                 }}
                             >
                                 {
-                                    [...Array(10).keys(),].map((number => {
+                                    [...Array(product.quantity).keys(),].map((number => {
                                         const num = number + 1
                                         return <option value={num} key={num}>{num}</option>
                                     }))
@@ -59,13 +61,14 @@ function ShoppingCart({visibility, products, onProductRemove, onQuantityChange, 
                         </div>)
                     })}</>
                 }
-                {products.length > 0 && (
+                {productsInCart.length > 0 && (
                     <button className='btn checkout-btn'>
                         Proceed to Checkout
                     </button>
                 )}
             </div>
         </div>
+        {/* <PaymentButtons/> */}
     </div>
   )
 }

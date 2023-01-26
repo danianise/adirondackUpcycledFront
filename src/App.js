@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Route, Routes } from "react-router-dom";
 
 import './App.css';
@@ -19,24 +19,51 @@ import ShoppingCart from './components/ShoppingCart';
 function App() {
 
   const [cartVisibility, setCartVisibility] = useState(false)
-  const [productsInCart, setProductsInCart] = useState(0)
+  const [productsInCart, setProductsInCart] = useState(JSON.parse(localStorage.getItem("shopping-cart")) || [] )
+
+  useEffect(() => {
+    localStorage.setItem("shopping-cart", JSON.stringify(productsInCart))
+  },[productsInCart])
+
+  let shoppingCart = JSON.parse(localStorage.getItem("shopping-cart")) 
+  console.log(shoppingCart)
 
   const addProductToCart = (product) => {
     const newProduct = {
       ...product,
       count: 1, 
     }
-    if (productsInCart!==0){
+    if(productsInCart===0){
+      setProductsInCart([
+        newProduct
+      ])
+    } else if(productsInCart!==0) {
       setProductsInCart([
         ...productsInCart,
         newProduct
       ])
-    } else {
-      setProductsInCart([
-        newProduct
-      ])
     }
-    
+  }
+
+  const onQuantityChange = (productId, count) => {
+    setProductsInCart((oldState) => {
+      const productsIndex = oldState.findIndex((item) => item.id === productId)
+      console.log({productId})
+      if(productsIndex !== -1){
+        oldState[productsIndex].count = count
+      }
+      return [...oldState]
+    })
+  }
+
+  const onProductRemove = (product) => {
+    setProductsInCart((oldState) => {
+      const productsIndex = oldState.findIndex((item) => item.id === product.id)
+      if(product.id !== -1){
+        oldState.splice(productsIndex, 1)
+      }
+      return [...oldState]
+    })
   }
 
   return (
@@ -47,11 +74,13 @@ function App() {
         id='logo' 
       />
       <NavBar />
-      <ShoppingCart 
+      {/* <ShoppingCart 
                 visibility={cartVisibility}
-                products={productsInCart}
+                productsInCart={productsInCart}
                 onClose={() => setCartVisibility(false)}
-      />
+                onQuantityChange={onQuantityChange}
+                onProductRemove={onProductRemove}
+      /> */}
       <button id='cartIcon'>
         <BsCart4 onClick={() => setCartVisibility(true)} size={33} />
         {productsInCart.length > 0
@@ -63,6 +92,13 @@ function App() {
 
       <CategoryProvider>
         <ListingProvider>
+          <ShoppingCart 
+                  visibility={cartVisibility}
+                  productsInCart={productsInCart}
+                  onClose={() => setCartVisibility(false)}
+                  onQuantityChange={onQuantityChange}
+                  onProductRemove={onProductRemove}
+        />
           <Routes>
 
             <Route
