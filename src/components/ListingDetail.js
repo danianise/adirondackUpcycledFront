@@ -6,7 +6,7 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import '../css/Slideshow.css'
 
-function ListingDetail({addProductToCart}) {
+function ListingDetail({addProductToCart, productsInCart}) {
 
   let {categoryData} = useContext(CategoryContext)
   let {listingData} = useContext(ListingContext)
@@ -20,7 +20,14 @@ function ListingDetail({addProductToCart}) {
   return (
     <div>
       {listingData.map((eachListing) => {
-        // console.log(eachListing.id)
+
+        let indicesProductsInCart = []
+
+        for(let i=0; i<productsInCart.length; i++){
+          // console.log(productsInCart[i].id)
+          indicesProductsInCart.push(productsInCart[i].id)
+          console.log(`Products in cart indices:${indicesProductsInCart}`)
+        }
 
         if (parseInt(listingId) === eachListing.id){
           let mainPhotoSrc = `http://localhost:8000${eachListing.mainPhoto}`
@@ -51,7 +58,7 @@ function ListingDetail({addProductToCart}) {
             fadeImages.push(photo5Src)
           }
           
-          if (fadeImages.length===1){
+          if (fadeImages.length===1 && eachListing.available === true && !indicesProductsInCart.includes(eachListing.id)){
             return (
               <div className="listingDetail">
                 <h1>{eachListing.title}</h1>
@@ -66,13 +73,97 @@ function ListingDetail({addProductToCart}) {
                 <p id='listingDescription'>{eachListing.description}</p>
               </div>
             )
-          } else {
+          } else if(fadeImages.length===1 && eachListing.available === true && indicesProductsInCart.includes(eachListing.id)){
+            return(
+              <div className="listingDetail">
+                <h1>{eachListing.title}</h1>
+                <h4>
+                  ${eachListing.price}
+                  {/* <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button> */}
+                  <p style={{fontStyle: 'italic', fontSize: 'small'}}>Item added to Cart</p>
+                </h4>
+                <img 
+                  src={fadeImages[0]}
+                  className="slideshowImages singleListingImage"
+                />
+                <p id='listingDescription'>{eachListing.description}</p>
+              </div>
+            )
+          } else if(fadeImages.length>1 && eachListing.available===true && !indicesProductsInCart.includes(eachListing.id)){
             return (
               <div className="listingDetail">
                 <h1>{eachListing.title}</h1>
                 <h4>
                   ${eachListing.price}
                   <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button>
+                </h4>
+                <div className="slide-container" id="slide-container-listing-detail">
+                  <Fade indicators={true} canSwipe={true}>
+                    {fadeImages.map((fadeImage, index) => (
+                      <div className="each-fade" key={index}>
+                        <div className="image-container">
+                          <img 
+                          src={fadeImage} 
+                          className="slideshowImages" 
+                        />
+                        </div>
+                      </div>
+                    ))}
+                  </Fade>
+                </div>
+                <p id='listingDescription'>{eachListing.description}</p>
+              </div>
+            )
+          }else if(fadeImages.length>1 && eachListing.available===true && indicesProductsInCart.includes(eachListing.id)){
+            return (
+              <div className="listingDetail">
+                <h1>{eachListing.title}</h1>
+                <h4>
+                  ${eachListing.price}
+                  {/* <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button> */}
+                  <p style={{fontStyle: 'italic', fontSize: 'small'}}>Item added to Cart</p>
+                </h4>
+                <div className="slide-container" id="slide-container-listing-detail">
+                  <Fade indicators={true} canSwipe={true}>
+                    {fadeImages.map((fadeImage, index) => (
+                      <div className="each-fade" key={index}>
+                        <div className="image-container">
+                          <img 
+                          src={fadeImage} 
+                          className="slideshowImages" 
+                        />
+                        </div>
+                      </div>
+                    ))}
+                  </Fade>
+                </div>
+                <p id='listingDescription'>{eachListing.description}</p>
+              </div>
+            )
+          } else if(fadeImages.length===1 && eachListing.available === false){
+            return(
+              <div className="listingDetail">
+                <h1>{eachListing.title}</h1>
+                <h4>
+                  ${eachListing.price}
+                  {/* <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button> */}
+                  <p style={{fontStyle: 'italic', fontSize: 'small'}}>Unavailable</p>
+                </h4>
+                <img 
+                  src={fadeImages[0]}
+                  className="slideshowImages singleListingImage"
+                />
+                <p id='listingDescription'>{eachListing.description}</p>
+              </div>
+            )
+          } else if(fadeImages.length>1 && eachListing.available === false){
+            return (
+              <div className="listingDetail">
+                <h1>{eachListing.title}</h1>
+                <h4>
+                  ${eachListing.price}
+                  {/* <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button> */}
+                  <p style={{fontStyle: 'italic', fontSize: 'small'}}>Unavailable</p>
                 </h4>
                 <div className="slide-container" id="slide-container-listing-detail">
                   <Fade indicators={true} canSwipe={true}>

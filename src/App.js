@@ -38,10 +38,16 @@ function App() {
         newProduct
       ])
     } else if(productsInCart!==0) {
-      setProductsInCart([
-        ...productsInCart,
-        newProduct
-      ])
+      if(productsInCart.includes(product)){
+        setProductsInCart([
+          ...productsInCart
+        ])
+      } else {
+        setProductsInCart([
+          ...productsInCart,
+          newProduct
+        ])
+      }
     }
   }
 
@@ -132,6 +138,7 @@ function App() {
                   name={'Tables'}
                   categoryId={1}
                   addProductToCart={addProductToCart}
+                  productsInCart={productsInCart}
                 />
               }
             />
@@ -153,6 +160,7 @@ function App() {
                   name={'Benches'}
                   categoryId={2}
                   addProductToCart={addProductToCart}
+                  productsInCart={productsInCart}
                 />
               }
             />
@@ -174,6 +182,7 @@ function App() {
                   name='Wall Pieces'
                   categoryId={3}
                   addProductToCart={addProductToCart}
+                  productsInCart={productsInCart}
                 />
               }
             />
@@ -195,6 +204,7 @@ function App() {
                   name={'Charcuterie Boards and Serving Trays'}
                   categoryId={4}
                   addProductToCart={addProductToCart}
+                  productsInCart={productsInCart}
                 />
               }
             />
@@ -216,6 +226,7 @@ function App() {
                   name={'Bars'}
                   categoryId={5}
                   addProductToCart={addProductToCart}
+                  productsInCart={productsInCart}
                 />
               }
             />
@@ -237,6 +248,7 @@ function App() {
                   name={'Cutting Boards'}
                   categoryId={6}
                   addProductToCart={addProductToCart}
+                  productsInCart={productsInCart}
                 />
               }
             />
@@ -258,6 +270,7 @@ function App() {
                   name={'Wine Racks'}
                   categoryId={7}
                   addProductToCart={addProductToCart}
+                  productsInCart={productsInCart}
                 />
               }
             />
