@@ -29,35 +29,36 @@ function ShoppingCart({visibility, productsInCart, onProductRemove, onQuantityCh
             <div className='cart-products'>
                 {productsInCart.length === 0 || !productsInCart
                     ? <span className='empty-text'>Your Cart is Empty</span>
-                    : <>{productsInCart.map((product) => {
-                        let mainPhotoSrc = `http://localhost:8000${product.mainPhoto}`
-                    
+                    : <>{productsInCart.map((eachProduct) => {
+                        // console.log(eachProduct.count)
+                        let mainPhotoSrc = `http://localhost:8000${eachProduct.mainPhoto}`
+
                         return (
-                        <div className='cart-product' key={product.id}>
-                            <img src={mainPhotoSrc} alt={product.title}/>
+                        <div className='cart-product' key={eachProduct.id}>
+                            <img src={mainPhotoSrc} alt={eachProduct.title}/>
                             <div className='product-info'>
                                 <h3>
-                                    {product.title}
+                                    {eachProduct.title}
                                 </h3>
                                 <span className='product-price'>
-                                    ${product.price * product.count}
+                                    ${eachProduct.price * eachProduct.count}
                                 </span>
                             </div>
                             <select 
                                 className='count'
-                                value={product.count}
+                                value={eachProduct.count}
                                 onChange={(event) => {
-                                    onQuantityChange(product.id, event.target.value)
+                                    onQuantityChange(eachProduct.id, event.target.value)
                                 }}
                             >
                                 {
-                                    [...Array(product.quantity).keys(),].map((number => {
+                                    [...Array(eachProduct.quantity).keys(),].map((number => {
                                         const num = number + 1
                                         return <option value={num} key={num}>{num}</option>
                                     }))
                                 }
                             </select>
-                            <RiDeleteBin6Line className='btn delete-btn' size={20} onClick={() => onProductRemove(product)} />
+                            <RiDeleteBin6Line className='btn delete-btn' size={20} onClick={(eachProduct) => onProductRemove(eachProduct)} />
                         </div>)
                     })}</>
                 }

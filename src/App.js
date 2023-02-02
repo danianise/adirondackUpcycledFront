@@ -21,12 +21,12 @@ function App() {
   const [cartVisibility, setCartVisibility] = useState(false)
   const [productsInCart, setProductsInCart] = useState(JSON.parse(localStorage.getItem("shopping-cart")) || [] )
 
+  let countTracker = []
+  let countTrackerSum = 0
+
   useEffect(() => {
     localStorage.setItem("shopping-cart", JSON.stringify(productsInCart))
   },[productsInCart])
-
-  let shoppingCart = JSON.parse(localStorage.getItem("shopping-cart")) 
-  console.log(shoppingCart)
 
   const addProductToCart = (product) => {
     const newProduct = {
@@ -54,7 +54,7 @@ function App() {
   const onQuantityChange = (productId, count) => {
     setProductsInCart((oldState) => {
       const productsIndex = oldState.findIndex((item) => item.id === productId)
-      console.log({productId})
+      console.log(oldState[productsIndex].count)
       if(productsIndex !== -1){
         oldState[productsIndex].count = count
       }
@@ -63,14 +63,24 @@ function App() {
   }
 
   const onProductRemove = (product) => {
-    setProductsInCart((oldState) => {
-      const productsIndex = oldState.findIndex((item) => item.id === product.id)
+    setProductsInCart((productsInCart) => {
+      const productsIndex = productsInCart.findIndex((item) => item.id === product.id)
       if(product.id !== -1){
-        oldState.splice(productsIndex, 1)
+        productsInCart.splice(productsIndex, 1)
       }
-      return [...oldState]
+      return [...productsInCart]
     })
   }
+
+  productsInCart.map((eachProduct) => {
+    countTracker.push(parseInt(eachProduct.count))
+  })
+  
+  console.log(countTracker)
+  countTracker.map((each) => {
+    countTrackerSum = countTrackerSum + each
+  })
+  console.log(countTrackerSum)
 
   return (
     <div className="App">
@@ -90,7 +100,7 @@ function App() {
       <button id='cartIcon'>
         <BsCart4 onClick={() => setCartVisibility(true)} size={33} />
         {productsInCart.length > 0
-          ? <span className='product-count'>{productsInCart.length}</span>
+          ? <span className='product-count'>{countTrackerSum}</span>
           : ""
         }
       </button>

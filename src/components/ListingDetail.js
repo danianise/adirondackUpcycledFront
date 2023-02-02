@@ -26,7 +26,7 @@ function ListingDetail({addProductToCart, productsInCart}) {
         for(let i=0; i<productsInCart.length; i++){
           // console.log(productsInCart[i].id)
           indicesProductsInCart.push(productsInCart[i].id)
-          console.log(`Products in cart indices:${indicesProductsInCart}`)
+          // console.log(`Products in cart indices:${indicesProductsInCart}`)
         }
 
         if (parseInt(listingId) === eachListing.id){
