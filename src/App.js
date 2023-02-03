@@ -54,7 +54,7 @@ function App() {
   const onQuantityChange = (productId, count) => {
     setProductsInCart((oldState) => {
       const productsIndex = oldState.findIndex((item) => item.id === productId)
-      console.log(oldState[productsIndex].count)
+      // console.log(oldState[productsIndex].count)
       if(productsIndex !== -1){
         oldState[productsIndex].count = count
       }
@@ -63,24 +63,36 @@ function App() {
   }
 
   const onProductRemove = (product) => {
-    setProductsInCart((productsInCart) => {
-      const productsIndex = productsInCart.findIndex((item) => item.id === product.id)
-      if(product.id !== -1){
-        productsInCart.splice(productsIndex, 1)
+    setProductsInCart((oldState) => {
+      const productsIndex = oldState.findIndex((item) => item.id === product.id)
+      if(productsIndex !== -1){
+        oldState.splice(productsIndex, 1)
+      } else {
+        console.log(productsIndex)
       }
-      return [...productsInCart]
+      return [...oldState]
     })
   }
 
+  // const onProductRemove = (product) => {
+  //   setProductsInCart((productsInCart) => {
+  //     const productsIndex = productsInCart.findIndex((item) => item.id === product.id)
+  //     if(product.id !== -1){
+  //       productsInCart.splice(productsIndex, 1)
+  //     }
+  //     return [...productsInCart]
+  //   })
+  // }
+
   productsInCart.map((eachProduct) => {
     countTracker.push(parseInt(eachProduct.count))
+    return countTracker
   })
   
-  console.log(countTracker)
   countTracker.map((each) => {
     countTrackerSum = countTrackerSum + each
+    return countTrackerSum
   })
-  console.log(countTrackerSum)
 
   return (
     <div className="App">
@@ -90,13 +102,7 @@ function App() {
         id='logo' 
       />
       <NavBar />
-      {/* <ShoppingCart 
-                visibility={cartVisibility}
-                productsInCart={productsInCart}
-                onClose={() => setCartVisibility(false)}
-                onQuantityChange={onQuantityChange}
-                onProductRemove={onProductRemove}
-      /> */}
+
       <button id='cartIcon'>
         <BsCart4 onClick={() => setCartVisibility(true)} size={33} />
         {productsInCart.length > 0

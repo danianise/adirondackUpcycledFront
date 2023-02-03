@@ -58,7 +58,8 @@ function ShoppingCart({visibility, productsInCart, onProductRemove, onQuantityCh
                                     }))
                                 }
                             </select>
-                            <RiDeleteBin6Line className='btn delete-btn' size={20} onClick={(eachProduct) => onProductRemove(eachProduct)} />
+                            {/* <RiDeleteBin6Line className='btn delete-btn' size={20} onClick={(eachProduct) => onProductRemove(eachProduct)} /> */}
+                            <RiDeleteBin6Line className='btn delete-btn' size={20} onClick={() => onProductRemove(eachProduct)} />
                         </div>)
                     })}</>
                 }

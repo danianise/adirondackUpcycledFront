@@ -21,11 +21,11 @@ function ListingDetail({addProductToCart, productsInCart}) {
     <div>
       {listingData.map((eachListing) => {
 
-        let indicesProductsInCart = []
+        let idsProductsInCart = []
 
         for(let i=0; i<productsInCart.length; i++){
           // console.log(productsInCart[i].id)
-          indicesProductsInCart.push(productsInCart[i].id)
+          idsProductsInCart.push(productsInCart[i].id)
           // console.log(`Products in cart indices:${indicesProductsInCart}`)
         }
 
@@ -58,7 +58,7 @@ function ListingDetail({addProductToCart, productsInCart}) {
             fadeImages.push(photo5Src)
           }
           
-          if (fadeImages.length===1 && eachListing.available === true && !indicesProductsInCart.includes(eachListing.id)){
+          if (fadeImages.length===1 && eachListing.available === true && !idsProductsInCart.includes(eachListing.id)){
             return (
               <div className="listingDetail">
                 <h1>{eachListing.title}</h1>
@@ -73,7 +73,7 @@ function ListingDetail({addProductToCart, productsInCart}) {
                 <p id='listingDescription'>{eachListing.description}</p>
               </div>
             )
-          } else if(fadeImages.length===1 && eachListing.available === true && indicesProductsInCart.includes(eachListing.id)){
+          } else if(fadeImages.length===1 && eachListing.available === true && idsProductsInCart.includes(eachListing.id)){
             return(
               <div className="listingDetail">
                 <h1>{eachListing.title}</h1>
@@ -89,7 +89,7 @@ function ListingDetail({addProductToCart, productsInCart}) {
                 <p id='listingDescription'>{eachListing.description}</p>
               </div>
             )
-          } else if(fadeImages.length>1 && eachListing.available===true && !indicesProductsInCart.includes(eachListing.id)){
+          } else if(fadeImages.length>1 && eachListing.available===true && !idsProductsInCart.includes(eachListing.id)){
             return (
               <div className="listingDetail">
                 <h1>{eachListing.title}</h1>
@@ -114,7 +114,7 @@ function ListingDetail({addProductToCart, productsInCart}) {
                 <p id='listingDescription'>{eachListing.description}</p>
               </div>
             )
-          }else if(fadeImages.length>1 && eachListing.available===true && indicesProductsInCart.includes(eachListing.id)){
+          }else if(fadeImages.length>1 && eachListing.available===true && idsProductsInCart.includes(eachListing.id)){
             return (
               <div className="listingDetail">
                 <h1>{eachListing.title}</h1>

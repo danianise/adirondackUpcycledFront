@@ -102,3 +102,7 @@
 .delete-btn {
     margin-bottom: -5px;
 }
+
+.delete-btn:hover{
+    cursor: pointer;
+}
