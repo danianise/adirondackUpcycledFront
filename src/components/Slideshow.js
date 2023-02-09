@@ -14,7 +14,7 @@ function Slideshow() {
     let fadeImages = []
 
     listingData.map((eachListing) => {
-      let src = `http://localhost:8000${eachListing.mainPhoto}`
+      let src = process.env.REACT_APP_API_URL + `${eachListing.mainPhoto}`
 
       categoryData.map((eachCategory) => {
         if (eachListing.category === eachCategory.id){
