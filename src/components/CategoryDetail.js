@@ -27,7 +27,7 @@ function CategoryDetail({name, categoryId}) {
                 } 
               })
 
-              let src = `http://localhost:8000${eachListing.mainPhoto}`
+              let src = process.env.REACT_APP_API_URL + `${eachListing.mainPhoto}`
               
               return(
                   <div className='productCardContainer' key={index}>

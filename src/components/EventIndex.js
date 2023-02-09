@@ -6,7 +6,7 @@ function EventIndex() {
     const [eventData, setEventData] = useState([])
 
     useEffect(() => {
-      const url = process.env.REACT_APP_API_URL + 'events/'
+      const url = process.env.REACT_APP_API_URL + '/events/'
       const opts = {
         method: 'GET',
         headers: {

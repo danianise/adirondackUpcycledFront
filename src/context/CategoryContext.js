@@ -10,7 +10,7 @@ export const CategoryProvider = ({children}) => {
 
     useEffect(() => {
         fetch(
-            process.env.REACT_APP_API_URL + 'categories/',
+            process.env.REACT_APP_API_URL + '/categories/',
             {
                 method: 'GET',
                 headers: {

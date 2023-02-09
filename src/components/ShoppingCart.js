@@ -31,7 +31,7 @@ function ShoppingCart({visibility, productsInCart, onProductRemove, onQuantityCh
                     ? <span className='empty-text'>Your Cart is Empty</span>
                     : <>{productsInCart.map((eachProduct) => {
                         // console.log(eachProduct.count)
-                        let mainPhotoSrc = `http://localhost:8000${eachProduct.mainPhoto}`
+                        let mainPhotoSrc = process.env.REACT_APP_API_URL + `${eachProduct.mainPhoto}`
 
                         return (
                         <div className='cart-product' key={eachProduct.id}>

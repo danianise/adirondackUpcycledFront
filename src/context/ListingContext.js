@@ -10,7 +10,7 @@ export const ListingProvider = ({children}) => {
 
     useEffect(() => {
         fetch(
-            process.env.REACT_APP_API_URL + 'listings/',
+            process.env.REACT_APP_API_URL + '/listings/',
             {
                 method: 'GET',
                 headers: {
