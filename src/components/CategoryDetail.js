@@ -27,7 +27,7 @@ function CategoryDetail({name, categoryId}) {
                 } 
               })
 
-              let src = process.env.REACT_APP_API_URL + `${eachListing.mainPhoto}`
+              let src = `https://res.cloudinary.com/di5yeg78v/${eachListing.mainPhoto}`
               
               return(
                   <div className='productCardContainer' key={index}>
