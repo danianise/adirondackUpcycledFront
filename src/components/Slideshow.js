@@ -14,7 +14,8 @@ function Slideshow() {
     let fadeImages = []
 
     listingData.map((eachListing) => {
-      let src = process.env.REACT_APP_API_URL + `${eachListing.mainPhoto}`
+      // let src = process.env.CLOUDINARY_API_URL + `${eachListing.mainPhoto}`
+      let src = `https://res.cloudinary.com/di5yeg78v/` + `${eachListing.mainPhoto}`
 
       categoryData.map((eachCategory) => {
         if (eachListing.category === eachCategory.id){
