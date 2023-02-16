@@ -97,7 +97,8 @@ function App() {
   return (
     <div className="App">
       <img 
-        src='adirondackLogoWater.png'
+        // src='adirondackLogoWater.png'
+        src='https://res.cloudinary.com/di5yeg78v/image/upload/v1676572152/adirondackLogoWater_ywu8r8.png'
         alt='Logo for Adirondack Upcycled'
         id='logo' 
       />
