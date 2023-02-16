@@ -64,7 +64,10 @@ function EventIndex() {
                       </div>
                   </div>
                   <div className="event-right">
-                    <h3 className="event-title">{each.eventName}</h3>
+                    <a href={each.url}>
+                      <h3 className="event-title">{each.eventName}</h3>
+                    </a>
+                    <h4>{each.location}</h4>
                     <div className="event-description">
                       {each.description}
                     </div>
