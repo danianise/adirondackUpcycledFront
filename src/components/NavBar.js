@@ -46,6 +46,11 @@ function NavBar(visibility, products) {
                         SHOP
                     </a>
                 </li>
+                <li className='nav-item'>
+                    <a href={process.env.REACT_APP_API_URL + `/admin`} target='_blank'>
+                        ADMIN
+                    </a>
+                </li>
             </ul>
 
             <div className='hamburger' onClick={handleClick}>
