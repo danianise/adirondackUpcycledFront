@@ -16,6 +16,7 @@ function ListingDetail({addProductToCart, productsInCart}) {
   // console.log(listingId)
 
   let fadeImages = []
+  console.log(fadeImages)
 
   return (
     <div>
@@ -66,10 +67,12 @@ function ListingDetail({addProductToCart, productsInCart}) {
                   ${eachListing.price}
                   <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button>
                 </h4>
-                <img 
-                  src={fadeImages[0]}
-                  className="slideshowImages singleListingImage"
-                />
+                <a href={fadeImages[0]} target='_blank'>
+                  <img 
+                    src={fadeImages[0]}
+                    className="slideshowImages singleListingImage"
+                  />
+                </a>
                 <p id='listingDescription'>{eachListing.description}</p>
               </div>
             )
@@ -82,10 +85,12 @@ function ListingDetail({addProductToCart, productsInCart}) {
                   {/* <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button> */}
                   <p style={{fontStyle: 'italic', fontSize: 'small'}}>Item added to Cart</p>
                 </h4>
-                <img 
-                  src={fadeImages[0]}
-                  className="slideshowImages singleListingImage"
-                />
+                <a href={fadeImages[0]} target='_blank'>
+                  <img 
+                    src={fadeImages[0]}
+                    className="slideshowImages singleListingImage"
+                  />
+                </a>
                 <p id='listingDescription'>{eachListing.description}</p>
               </div>
             )
@@ -102,10 +107,12 @@ function ListingDetail({addProductToCart, productsInCart}) {
                     {fadeImages.map((fadeImage, index) => (
                       <div className="each-fade" key={index}>
                         <div className="image-container">
-                          <img 
-                          src={fadeImage} 
-                          className="slideshowImages" 
-                        />
+                          <a href={fadeImage} target='_blank'>
+                            <img 
+                            src={fadeImage} 
+                            className="slideshowImages" 
+                            />
+                          </a>
                         </div>
                       </div>
                     ))}
@@ -128,10 +135,13 @@ function ListingDetail({addProductToCart, productsInCart}) {
                     {fadeImages.map((fadeImage, index) => (
                       <div className="each-fade" key={index}>
                         <div className="image-container">
-                          <img 
-                          src={fadeImage} 
-                          className="slideshowImages" 
-                        />
+
+                          <a href={fadeImage} target='_blank'>
+                            <img 
+                            src={fadeImage} 
+                            className="slideshowImages" 
+                            />
+                          </a>
                         </div>
                       </div>
                     ))}
@@ -149,10 +159,12 @@ function ListingDetail({addProductToCart, productsInCart}) {
                   {/* <button id='addToCartButton' onClick={() => addProductToCart(eachListing)}>Add to Cart</button> */}
                   <p style={{fontStyle: 'italic', fontSize: 'small'}}>Unavailable</p>
                 </h4>
-                <img 
-                  src={fadeImages[0]}
-                  className="slideshowImages singleListingImage"
-                />
+                <a href={fadeImages[0]} target='_blank'>
+                  <img 
+                    src={fadeImages[0]}
+                    className="slideshowImages singleListingImage"
+                  />
+                </a>
                 <p id='listingDescription'>{eachListing.description}</p>
               </div>
             )
@@ -170,10 +182,12 @@ function ListingDetail({addProductToCart, productsInCart}) {
                     {fadeImages.map((fadeImage, index) => (
                       <div className="each-fade" key={index}>
                         <div className="image-container">
-                          <img 
-                          src={fadeImage} 
-                          className="slideshowImages" 
-                        />
+                          <a href={fadeImage} target='_blank'>
+                            <img 
+                              src={fadeImage} 
+                              className="slideshowImages" 
+                            />
+                          </a>
                         </div>
                       </div>
                     ))}
