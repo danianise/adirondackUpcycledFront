@@ -31,7 +31,7 @@ function Slideshow() {
   return (
     listingData.length === 0
   ? <>
-    <h4>UNDER CONSTRUCTION</h4><br />
+    {/* <h4>UNDER CONSTRUCTION</h4><br />
     <div id="loader">
       <div class="ls-particles ls-part-1"></div>
       <div class="ls-particles ls-part-2"></div>
@@ -41,7 +41,8 @@ function Slideshow() {
       <div class="lightsaber ls-left ls-green"></div>
       <div class="lightsaber ls-right ls-red"></div>
     </div>
-    <h5>please check back again soon</h5>
+    <h5>please check back again soon</h5> */}
+    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   </>
   : <>
     <div className="slide-container">
