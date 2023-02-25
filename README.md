@@ -2,7 +2,7 @@
 
 E-commerce website for a live-edged furniture business.
 
-## Languages used:
+## Technologies used:
 - JavaScript
 - React
 - Python
