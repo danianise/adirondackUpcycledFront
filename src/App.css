@@ -21,6 +21,13 @@ a:visited, a:hover, a:active {
   color: inherit;
 }
 
+.about{
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 3vh 10vw;
+  padding: 10px;
+}
+
 #cartIcon {
   top: 4%;
   position: absolute;

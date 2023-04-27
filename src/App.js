@@ -9,12 +9,13 @@ import { ListingProvider } from './context/ListingContext';
 
 import ContactSidebar from './components/ContactSidebar';
 import NavBar from './components/NavBar';
-import Slideshow from './components/Slideshow';
+import Home from './components/Home';
 import ShopIndex from './components/ShopIndex';
 import CategoryDetail from './components/CategoryDetail';
 import ListingDetail from './components/ListingDetail';
 import EventIndex from './components/EventIndex';
 import ShoppingCart from './components/ShoppingCart';
+import About from './components/About';
 
 function App() {
 
@@ -127,7 +128,14 @@ function App() {
             <Route
               path='/'
               element={
-                <Slideshow />
+                <Home />
+              }
+            />
+
+            <Route
+              path='/about'
+              element={
+                <About />
               }
             />
 
